@@ -84,3 +84,27 @@ def dechif_caesar(cle,txt):
   return print(f"votre mot de passe dechiffre est:{suffix+prefix}")
 code_caesar(5, mdp)
 dechif_caesar(5, mdp_a_dechiffre)
+
+"""
+Projet 3-4 : Cryptage d’une image ou d’un texte
+Le projet consiste à crypter une image ou un texte en utilisant une clé secrète. Pour l'image, la simplification proposée (somme sur la 3 ème dimension) permet de travailler avec une image en niveaux de gris, ce qui facilite le processus de cryptage. Le cryptage des pixels ou des caractères du texte peut être réalisé avec différentes méthodes comme celle de “cryptography” SAS IA - hash - cryptage
+Pour une image, on va faire simple prenez la somme d’une image sur la 3 dimension:
+np.sum(img, axis=2)
+Pyplot possède la fonction imread pour lire les images, on la convertit en array 2D.
+
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import bcrypt as bc
+from PIL import Image
+
+#img= Image.open("img.webp")
+def image_chiffre(imag_path):
+    imag= np.sum(Image.open(imag_path), axis=2)
+    # print(img.format)
+    # print(img.size)
+    # print(img.mode)
+    print(imag)
+
+image_chiffre("img.webp")
