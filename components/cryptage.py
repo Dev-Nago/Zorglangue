@@ -11,34 +11,21 @@ np.sum(img, axis=2)
 Pyplot possède la fonction imread pour lire les images, on la convertit en array 2D.
 
 
-
-def image_chiffre(img):
-    image = np.sum(Image.open(img), axis=2)
-    print(image)
-
-image_chiffre("img.webp")
-
-with Image.open("img.webp") as img:
-    img.show()
-    image = np.sum(Image.open(img), axis=2)
-
-
 """
 
 
 
 # Ouvrir l'image
-img = Image.open("img.webp")
+img = Image.open("image_2.JPG")
 
 # Convertir en niveaux de gris
-img_gray = img.convert('L')
+img_gray = img.convert('RGB')
 
 # Convertir en tableau NumPy
 img_array = np.array(img_gray)
 
 #plt.imshow(img_gray, cmap='gray')
 #plt.show()
-
 
 
 def encrypt_array(data, key):
@@ -114,7 +101,5 @@ encrypted_data = encrypt_array(data, key)
 # Déchiffrement
 decrypted_data = decrypt_array(encrypted_data, key)
 
-print(decrypted_data)
-
-plt.imshow(decrypted_data, cmap='gray')
-plt.show()
+# garde en imagen
+decrypted_data = save_decrypted_image(decrypted_data, "papi_decrypter.jpg",data.shape)
